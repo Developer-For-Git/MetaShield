@@ -1,6 +1,6 @@
 # MetaShield — Strip it. Own it. Share it safely.
 
-![MetaShield Banner](https://raw.githubusercontent.com/username/MetaShield/main/assets/banner.png)
+![MetaShield Banner](https://raw.githubusercontent.com/Developer-For-Git/MetaShield/main/assets/banner.png)
 
 ## 🛡️ Your Digital Armor in a Data-Driven World
 
