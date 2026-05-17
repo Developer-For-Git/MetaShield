@@ -2,6 +2,13 @@
 
 ![MetaShield Banner](https://raw.githubusercontent.com/Developer-For-Git/MetaShield/main/assets/banner.png)
 
+<p align="center">
+  <img src="screenshots/screenshot_3.jpg" width="23%" alt="Home Screen" />
+  <img src="screenshots/screenshot_4.jpg" width="23%" alt="Tools Screen" />
+  <img src="screenshots/screenshot_2.jpg" width="23%" alt="History Screen" />
+  <img src="screenshots/screenshot_1.jpg" width="23%" alt="Settings Screen" />
+</p>
+
 ## 🛡️ Your Digital Armor in a Data-Driven World
 
 In an era where every click, capture, and upload leaves a digital footprint, your privacy is more vulnerable than ever. **MetaShield** is a premium, high-performance Android application designed to put you back in control of your personal data. 
