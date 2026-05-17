@@ -26,10 +26,7 @@ import java.net.URLEncoder
 fun NavGraph(initialSharedUris: List<Uri> = emptyList()) {
     val navController = rememberNavController()
 
-    val slideEnter  = slideInHorizontally(tween(300)) { it } + fadeIn(tween(300))
-    val slideExit   = slideOutHorizontally(tween(300)) { -it } + fadeOut(tween(300))
-    val popEnter    = slideInHorizontally(tween(300)) { -it } + fadeIn(tween(300))
-    val popExit     = slideOutHorizontally(tween(300)) { it } + fadeOut(tween(300))
+
 
     // Shared BatchViewModel scoped to NavGraph
     val batchViewModel: com.metashield.app.ui.batch.BatchQueueViewModel = hiltViewModel()

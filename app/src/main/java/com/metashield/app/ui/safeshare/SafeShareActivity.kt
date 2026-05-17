@@ -38,7 +38,7 @@ class SafeShareActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        val uri = intent.getParcelableExtra<Uri>(Intent.EXTRA_STREAM)
+        val uri = androidx.core.content.IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java)
         if (uri == null) {
             finish()
             return

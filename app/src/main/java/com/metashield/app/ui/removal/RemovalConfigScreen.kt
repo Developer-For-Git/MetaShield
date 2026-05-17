@@ -8,6 +8,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.Chat
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -57,7 +59,7 @@ fun RemovalConfigScreen(
                         color = TextPrimary
                     )
                 },
-                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.Filled.ArrowBack, "Back", tint = TextSecondary) } },
+                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = TextSecondary) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
@@ -93,7 +95,7 @@ fun RemovalConfigScreen(
                     modifier = Modifier.horizontalScroll(rememberScrollState()),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    ProfileChip("WhatsApp", Icons.Outlined.Chat, listOf(SafeGreen, ObsidianCyan)) { viewModel.applyPreset(RemovalOptions.PROFILE_WHATSAPP) }
+                    ProfileChip("WhatsApp", Icons.AutoMirrored.Outlined.Chat, listOf(SafeGreen, ObsidianCyan)) { viewModel.applyPreset(RemovalOptions.PROFILE_WHATSAPP) }
                     ProfileChip("Discord", Icons.Outlined.Forum, GradientViolet) { viewModel.applyPreset(RemovalOptions.PROFILE_DISCORD) }
                     ProfileChip("Stealth", Icons.Outlined.VisibilityOff, listOf(DangerRed, ObsidianPink)) { viewModel.applyPreset(RemovalOptions.PROFILE_STEALTH) }
                     ProfileChip("Strip All", Icons.Outlined.DeleteSweep, GradientDanger) { viewModel.applyPreset(RemovalOptions.STRIP_ALL) }
@@ -203,7 +205,7 @@ private fun ProtectionScoreCard(score: Int, isProcessing: Boolean) {
                 LinearProgressIndicator(modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(50.dp)).height(6.dp), color = ObsidianIndigo, trackColor = SpaceRaised)
             } else {
                 LinearProgressIndicator(
-                    progress = score / 100f,
+                    progress = { score / 100f },
                     modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(50.dp)).height(6.dp),
                     color = color, trackColor = SpaceRaised
                 )

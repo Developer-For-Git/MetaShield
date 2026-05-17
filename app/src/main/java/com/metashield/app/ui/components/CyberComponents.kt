@@ -111,7 +111,7 @@ fun CyberScaffold(
 fun CyberCard(
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(24.dp),
-    borderColor: Color = Color.Unspecified,   // legacy compat
+    @Suppress("UNUSED_PARAMETER") borderColor: Color = Color.Unspecified,   // legacy compat
     containerColor: Color = Color.Unspecified,
     content: @Composable () -> Unit
 ) {
@@ -138,7 +138,7 @@ fun CyberButton(
     label: String,
     modifier: Modifier = Modifier,
     icon: ImageVector? = null,
-    gradient: List<Color> = emptyList(),
+    @Suppress("UNUSED_PARAMETER") gradient: List<Color> = emptyList(),
     enabled: Boolean = true,
     contentPadding: PaddingValues = PaddingValues(horizontal = 24.dp, vertical = 16.dp)
 ) {
@@ -179,7 +179,7 @@ fun CyberIconButton(
     icon: ImageVector,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified,  // legacy compat
+    @Suppress("UNUSED_PARAMETER") color: Color = Color.Unspecified,  // legacy compat
     enabled: Boolean = true
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -252,7 +252,7 @@ fun StatusBadge(text: String, color: Color, modifier: Modifier = Modifier) {
 @Composable
 fun GradientText(
     text: String,
-    gradient: List<Color> = emptyList(),
+    @Suppress("UNUSED_PARAMETER") gradient: List<Color> = emptyList(),
     style: androidx.compose.ui.text.TextStyle = MaterialTheme.typography.titleLarge,
     modifier: Modifier = Modifier
 ) {
@@ -265,7 +265,7 @@ fun GradientText(
 @Composable
 fun GlassIconBox(
     icon: ImageVector,
-    gradient: List<Color> = emptyList(),  // legacy compat
+    @Suppress("UNUSED_PARAMETER") gradient: List<Color> = emptyList(),  // legacy compat
     size: Dp = 52.dp,
     iconSize: Dp = 26.dp,
     shape: Shape = RoundedCornerShape(16.dp),

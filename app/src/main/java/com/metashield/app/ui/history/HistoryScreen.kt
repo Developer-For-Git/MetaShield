@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -100,7 +101,7 @@ fun HistoryScreen(
                     navigationIcon = {
                         if (!isRootTab) {
                             IconButton(onClick = onNavigateUp) {
-                                Icon(Icons.Filled.ArrowBack, "Back")
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
                             }
                         }
                     },
@@ -203,8 +204,6 @@ fun HistoryScreen(
                         ) {
                             HistoryListItem(
                                 entry      = entry,
-                                isFirst    = index == 0,
-                                isLast     = index == history.lastIndex,
                                 isSelected = selectedIds.contains(entry.id),
                                 onTap      = {
                                     if (selectedIds.isNotEmpty()) viewModel.toggleSelection(entry.id)
@@ -226,8 +225,6 @@ fun HistoryScreen(
 @Composable
 private fun HistoryListItem(
     entry: HistoryEntity,
-    isFirst: Boolean,
-    isLast: Boolean,
     isSelected: Boolean,
     onTap: () -> Unit,
     onLongPress: () -> Unit,

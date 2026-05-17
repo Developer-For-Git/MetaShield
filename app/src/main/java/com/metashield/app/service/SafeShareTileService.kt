@@ -21,10 +21,15 @@ class SafeShareTileService : TileService() {
         }
         
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            // Android 14+ requires pending intent for tiles
-            // But for simplicity in this demo, we'll use the standard start
-            startActivityAndCollapse(intent)
+            val pendingIntent = android.app.PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                android.app.PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE
+            )
+            startActivityAndCollapse(pendingIntent)
         } else {
+            @Suppress("DEPRECATION")
             startActivityAndCollapse(intent)
         }
     }

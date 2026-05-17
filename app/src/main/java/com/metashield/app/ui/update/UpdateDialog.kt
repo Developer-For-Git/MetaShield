@@ -11,6 +11,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -126,7 +127,7 @@ private fun UpdateDialog(info: UpdateInfo, viewModel: UpdateViewModel) {
                         color     = MaterialTheme.colorScheme.secondaryContainer,
                         textColor = MaterialTheme.colorScheme.onSecondaryContainer
                     )
-                    Icon(Icons.Filled.ArrowForward, null,
+                    Icon(Icons.AutoMirrored.Filled.ArrowForward, null,
                         Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
                     VersionPill(
                         label     = "New",

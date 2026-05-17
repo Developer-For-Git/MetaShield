@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -71,13 +73,13 @@ fun MetadataEditorScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text("Refine Metadata", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.Filled.ArrowBack, "Back") } },
+                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") } },
                 actions = {
                     IconButton(onClick = { showGpsDialog = true }) {
                         Icon(Icons.Filled.AddLocation, "Add GPS")
                     }
                     IconButton(onClick = { viewModel.undoLast() }, enabled = state.canUndo) {
-                        Icon(Icons.Filled.Undo, "Undo")
+                        Icon(Icons.AutoMirrored.Filled.Undo, "Undo")
                     }
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Transparent)

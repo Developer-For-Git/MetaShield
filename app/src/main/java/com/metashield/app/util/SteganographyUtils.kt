@@ -75,8 +75,6 @@ object SteganographyUtils {
         val width = resultBitmap.width
         val height = resultBitmap.height
         var bitIndex = 0
-        val totalBits = bits.length()
-
         // Total bits including the bits after the last set bit (since BitSet.length() is the index of the last set bit + 1)
         // Actually, let's just use the size calculation
         val exactBitsCount = bytes.size * 8

@@ -127,9 +127,7 @@ class MetadataRepository @Inject constructor(
     fun getFileItem(uri: Uri): FileItem {
         var name = "unknown"
         var size = 0L
-        var mimeType: String? = null
-
-        when (uri.scheme) {
+        val mimeType = when (uri.scheme) {
             // ── file:// URI (from FileCache or local file) ────────────────
             "file" -> {
                 val file = File(uri.path!!)
@@ -138,7 +136,7 @@ class MetadataRepository @Inject constructor(
                     .replaceFirst(Regex("^\\d+_"), "")
                 size = file.length()
                 val ext = file.extension.lowercase()
-                mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext)
+                MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext)
             }
 
             // ── content:// URI (from SAF / share sheet) ───────────────────
@@ -152,7 +150,7 @@ class MetadataRepository @Inject constructor(
                         if (sizeIdx >= 0) size = cursor.getLong(sizeIdx)
                     }
                 }
-                mimeType = contentResolver.getType(uri)
+                contentResolver.getType(uri)
             }
         }
 

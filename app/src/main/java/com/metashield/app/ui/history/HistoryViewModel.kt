@@ -29,7 +29,7 @@ class HistoryViewModel @Inject constructor(
         _selectedCategory.value = category
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
+    @OptIn(ExperimentalCoroutinesApi::class, kotlinx.coroutines.FlowPreview::class)
     val history: StateFlow<List<HistoryEntity>> = combine(_searchQuery, _selectedCategory) { q, cat -> Pair(q, cat) }
         .debounce(300)
         .flatMapLatest { (query, category) ->

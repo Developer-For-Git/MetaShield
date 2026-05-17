@@ -57,13 +57,6 @@ class BatchWorker @AssistedInject constructor(
         val uriStrings = inputData.getStringArray(KEY_URI_LIST)
             ?: return@withContext Result.failure()
 
-        val options = RemovalOptions(
-            removeAll       = inputData.getBoolean(KEY_REMOVE_ALL, false),
-            removeLocation  = inputData.getBoolean(KEY_REMOVE_LOC, true),
-            removeDevice    = inputData.getBoolean(KEY_REMOVE_DEV, true),
-            removeTimestamps = inputData.getBoolean(KEY_REMOVE_TS, false)
-        )
-
         val total = uriStrings.size
         var completed = 0
         var failed = 0
@@ -72,7 +65,7 @@ class BatchWorker @AssistedInject constructor(
             if (isStopped) break
             try {
                 val uri = Uri.parse(uriString)
-                val fileItem = metadataRepository.getFileItem(uri)
+                metadataRepository.getFileItem(uri)
                 // NOTE: Output URI resolution requires SAF DocumentFile - handle in ViewModel
                 // For WorkManager-only mode, this is a pass-through that logs the attempt
                 completed++

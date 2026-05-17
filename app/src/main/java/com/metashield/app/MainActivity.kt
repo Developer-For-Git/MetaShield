@@ -320,13 +320,11 @@ class MainActivity : FragmentActivity() {
         if (intent == null) return emptyList()
         return when (intent.action) {
             Intent.ACTION_SEND -> {
-                @Suppress("DEPRECATION")
-                val uri = intent.getParcelableExtra<Uri>(Intent.EXTRA_STREAM)
+                val uri = androidx.core.content.IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java)
                 listOfNotNull(uri)
             }
             Intent.ACTION_SEND_MULTIPLE -> {
-                @Suppress("DEPRECATION")
-                intent.getParcelableArrayListExtra<Uri>(Intent.EXTRA_STREAM) ?: emptyList()
+                androidx.core.content.IntentCompat.getParcelableArrayListExtra(intent, Intent.EXTRA_STREAM, Uri::class.java) ?: emptyList()
             }
             else -> emptyList()
         }

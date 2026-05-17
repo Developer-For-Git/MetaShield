@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -64,7 +65,7 @@ fun MetadataViewerScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.Filled.ArrowBack, "Back", tint = TextSecondary)
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = TextSecondary)
                     }
                 },
                 actions = {
@@ -103,7 +104,7 @@ fun MetadataViewerScreen(
                                     .background(Brush.linearGradient(GradientPrimary)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                Icon(Icons.Outlined.FindInPage, null, tint = Color.White, modifier = Modifier.size(36.dp))
+                                Icon(Icons.Outlined.FindInPage, null, tint = Color.White, modifier = Modifier.size(36.dp).rotate(rotation))
                             }
                             Text("Reading metadata…", style = MaterialTheme.typography.bodyMedium, color = TextSecondary)
                         }
@@ -148,11 +149,7 @@ private fun MetadataContent(
 ) {
     val grouped = fields.groupBy { it.category }
     val sensitiveCount = fields.count { it.isSensitive }
-    val scoreColor = when {
-        privacyScore > 80 -> SafeGreen
-        privacyScore > 40 -> PrivacyAmber
-        else              -> DangerRed
-    }
+
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),

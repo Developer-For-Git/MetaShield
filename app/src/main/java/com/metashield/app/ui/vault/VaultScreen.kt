@@ -14,6 +14,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -105,7 +107,7 @@ fun VaultScreen(
                         )
                     }
                 },
-                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.Filled.ArrowBack, "Back") } },
+                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") } },
                 actions = {
                     if (!state.isLocked) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -228,7 +230,7 @@ private fun VaultEntryCard(
                     when (entry.fileType) {
                         "PHOTO" -> Icons.Outlined.Image
                         "VIDEO" -> Icons.Outlined.VideoFile
-                        else    -> Icons.Outlined.InsertDriveFile
+                        else    -> Icons.AutoMirrored.Outlined.InsertDriveFile
                     },
                     null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp)
                 )

@@ -59,7 +59,7 @@ class PhotoMetadataProcessor @Inject constructor(
         ExifInterface.TAG_APERTURE_VALUE,
         ExifInterface.TAG_EXPOSURE_TIME,
         ExifInterface.TAG_SHUTTER_SPEED_VALUE,
-        ExifInterface.TAG_ISO_SPEED_RATINGS,
+        ExifInterface.TAG_PHOTOGRAPHIC_SENSITIVITY,
         ExifInterface.TAG_EXPOSURE_BIAS_VALUE,
         ExifInterface.TAG_METERING_MODE,
         ExifInterface.TAG_FLASH,
@@ -196,9 +196,9 @@ class PhotoMetadataProcessor @Inject constructor(
                     val (lat, lon, _) = decoys.random()
                     
                     // Convert to HMS format for ExifInterface
-                    exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, formatLatLonToExif(lat.toDouble(), true))
+                    exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, formatLatLonToExif(lat.toDouble()))
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, if (lat.toDouble() >= 0) "N" else "S")
-                    exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, formatLatLonToExif(lon.toDouble(), false))
+                    exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, formatLatLonToExif(lon.toDouble()))
                     exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, if (lon.toDouble() >= 0) "E" else "W")
                     exif.setAttribute(ExifInterface.TAG_GPS_PROCESSING_METHOD, "GPS")
                     exif.setAttribute(ExifInterface.TAG_GPS_DATESTAMP, "2000:01:01")
@@ -302,7 +302,7 @@ class PhotoMetadataProcessor @Inject constructor(
         }
     }
 
-    private fun formatLatLonToExif(coordinate: Double, isLatitude: Boolean): String {
+    private fun formatLatLonToExif(coordinate: Double): String {
         val absolute = Math.abs(coordinate)
         val degrees = absolute.toInt()
         val minutes = ((absolute - degrees) * 60).toInt()

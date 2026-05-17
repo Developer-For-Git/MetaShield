@@ -13,6 +13,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
+import androidx.compose.material.icons.automirrored.filled.RotateRight
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -86,7 +89,7 @@ fun BatchQueueScreen(
                         }
                     }
                 },
-                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.Filled.ArrowBack, "Back", tint = TextSecondary) } },
+                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = TextSecondary) } },
                 actions = {
                     if (state.queue.isNotEmpty()) {
                         IconButton(onClick = { viewModel.clearQueue() }, enabled = !state.isRunning) {
@@ -137,7 +140,7 @@ fun BatchQueueScreen(
                                 }
                                 Spacer(Modifier.height(12.dp))
                                 LinearProgressIndicator(
-                                    progress = if (state.progress.total > 0) (state.progress.completed + state.progress.failed).toFloat() / state.progress.total else 0f,
+                                    progress = { if (state.progress.total > 0) (state.progress.completed + state.progress.failed).toFloat() / state.progress.total else 0f },
                                     modifier = Modifier.fillMaxWidth().height(4.dp).clip(CircleShape),
                                     color = ObsidianCyan, 
                                     trackColor = SpaceRaised
@@ -267,7 +270,7 @@ private fun BatchFileCard(item: BatchItem, onRemove: () -> Unit) {
         "VIDEO"    -> Pair(Icons.Outlined.Videocam, ObsidianViolet)
         "AUDIO"    -> Pair(Icons.Outlined.AudioFile, ObsidianPink)
         "DOCUMENT" -> Pair(Icons.Outlined.PictureAsPdf, DangerRed)
-        else       -> Pair(Icons.Outlined.InsertDriveFile, ObsidianIndigo)
+        else       -> Pair(Icons.AutoMirrored.Outlined.InsertDriveFile, ObsidianIndigo)
     }
 
     val infiniteTransition = rememberInfiniteTransition(label = "card")
@@ -351,7 +354,7 @@ private fun BatchFileCard(item: BatchItem, onRemove: () -> Unit) {
                                 animationSpec = infiniteRepeatable(tween(1000, easing = LinearEasing)),
                                 label = "rot"
                             )
-                            Icon(Icons.Filled.RotateRight, null, tint = ObsidianCyan, modifier = Modifier.size(20.dp).rotate(rotation))
+                            Icon(Icons.AutoMirrored.Filled.RotateRight, null, tint = ObsidianCyan, modifier = Modifier.size(20.dp).rotate(rotation))
                         }
                         else -> {}
                     }

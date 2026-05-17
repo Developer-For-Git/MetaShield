@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -37,7 +39,7 @@ fun BugReportScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text("Report a Bug", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.Filled.ArrowBack, "Back", tint = CyberGreen) } },
+                navigationIcon = { IconButton(onClick = onNavigateUp) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = CyberGreen) } },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Transparent)
             )
         }
@@ -132,7 +134,7 @@ fun BugReportScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Filled.Send, null, tint = Color.White)
+                        Icon(Icons.AutoMirrored.Filled.Send, null, tint = Color.White)
                         Spacer(Modifier.width(12.dp))
                         Text(
                             "SEND BUG REPORT",

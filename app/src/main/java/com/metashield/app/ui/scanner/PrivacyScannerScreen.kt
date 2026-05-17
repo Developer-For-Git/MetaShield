@@ -93,7 +93,6 @@ fun PrivacyScannerScreen(
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             RadarScanner(
                                 isScanning = true,
-                                score = state.privacyScore,
                                 scannedCount = state.scannedCount,
                                 totalFound = state.totalPhotosFound
                             )
@@ -108,8 +107,7 @@ fun PrivacyScannerScreen(
                 } else if (state.scannedCount > 0) {
                     PrivacyReportHub(
                         score = state.privacyScore,
-                        scannedCount = state.scannedCount,
-                        totalFound = state.totalPhotosFound
+                        scannedCount = state.scannedCount
                     )
                 } else {
                     // Ready State (Pre-scan)
@@ -120,7 +118,7 @@ fun PrivacyScannerScreen(
                             .padding(24.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        RadarScanner(isScanning = false, score = 0, scannedCount = 0, totalFound = 0)
+                        RadarScanner(isScanning = false, scannedCount = 0, totalFound = 0)
                     }
                 }
             }
@@ -196,7 +194,7 @@ fun PrivacyScannerScreen(
 }
 
 @Composable
-private fun PrivacyReportHub(score: Int, scannedCount: Int, totalFound: Int) {
+private fun PrivacyReportHub(score: Int, scannedCount: Int) {
     val scoreColor = when {
         score >= 80 -> SafeGreen
         score >= 50 -> PrivacyAmber
@@ -308,19 +306,13 @@ private fun HardeningStep(icon: ImageVector, title: String, description: String)
 }
 
 @Composable
-private fun RadarScanner(isScanning: Boolean, score: Int, scannedCount: Int, totalFound: Int) {
+private fun RadarScanner(isScanning: Boolean, scannedCount: Int, totalFound: Int) {
     val infiniteTransition = rememberInfiniteTransition(label = "radar")
     val sweepAngle by infiniteTransition.animateFloat(
         initialValue = 0f, targetValue = 360f,
         animationSpec = infiniteRepeatable(tween(2500, easing = LinearEasing)),
         label = "sweep"
     )
-
-    val scoreColor = when {
-        score >= 80 -> SafeGreen
-        score >= 50 -> PrivacyAmber
-        else -> DangerRed
-    }
 
     Box(
         modifier = Modifier.size(240.dp),
