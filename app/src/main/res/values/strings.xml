@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MetaShield</string>
+    <string name="app_tagline">Strip it. Own it. Share it safely.</string>
+
+    <!-- Notification -->
+    <string name="notification_channel_name">Batch Processing</string>
+    <string name="notification_channel_desc">Shows progress of batch metadata operations</string>
+    <string name="notification_title">MetaShield</string>
+    <string name="notification_done_title">MetaShield — Done!</string>
+
+    <!-- Actions -->
+    <string name="action_strip_photo">Remove meta data from photo</string>
+    <string name="action_strip_video">Remove meta data from video</string>
+    <string name="action_strip_unified">Remove meta data from videos and photos</string>
+    <string name="action_edit_metadata">Add custom meta data</string>
+    <string name="action_batch_process">Batch Process</string>
+    <string name="action_remove_all">Remove All Metadata</string>
+    <string name="action_remove_location">Remove Location Only</string>
+    <string name="action_save">Save</string>
+    <string name="action_share">Share</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_resume">Resume</string>
+
+    <!-- Screen titles -->
+    <string name="screen_home">Home</string>
+    <string name="screen_viewer">Metadata Viewer</string>
+    <string name="screen_editor">Metadata Editor</string>
+    <string name="screen_removal">Strip Metadata</string>
+    <string name="screen_batch">Batch Queue</string>
+    <string name="screen_preview">Output Preview</string>
+    <string name="screen_templates">Templates</string>
+    <string name="screen_history">History</string>
+    <string name="screen_settings">Settings</string>
+
+    <!-- Settings -->
+    <string name="settings_output_folder">Output Folder</string>
+    <string name="settings_filename_suffix">Filename Suffix</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_auto_backup">Auto-backup Originals</string>
+    <string name="settings_app_lock">App Lock (Biometric)</string>
+    <string name="settings_default_profile">Default Removal Profile</string>
+    <string name="settings_about">About MetaShield</string>
+
+    <!-- Categories -->
+    <string name="category_location">Location</string>
+    <string name="category_camera">Camera</string>
+    <string name="category_timestamps">Timestamps</string>
+    <string name="category_device">Device</string>
+    <string name="category_copyright">Copyright</string>
+    <string name="category_technical">Technical</string>
+    <string name="category_audio">Audio</string>
+    <string name="category_custom">Custom</string>
+
+    <!-- Privacy tips -->
+    <string name="tip_gps">Photos may contain your home GPS in EXIF data — strip it before sharing!</string>
+    <string name="tip_device">Your device serial number can be embedded in every photo you take.</string>
+
+    <!-- Errors -->
+    <string name="error_no_metadata">No metadata found in this file.</string>
+    <string name="error_processing">Failed to process file. Please try again.</string>
+    <string name="error_unsupported">This file type is not supported.</string>
+    <string name="error_permission">Storage permission is required to read files.</string>
+</resources>

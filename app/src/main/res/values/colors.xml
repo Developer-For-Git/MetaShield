@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base colors - only used for legacy Views / notifications -->
+    <color name="shield_teal">#00897B</color>
+    <color name="shield_teal_dark">#00695C</color>
+    <color name="accent_indigo">#5C6BC0</color>
+    <color name="danger_red">#E53935</color>
+    <color name="privacy_amber">#FF8F00</color>
+    <color name="safe_green">#43A047</color>
+    <color name="dark_background">#0F1117</color>
+    <color name="dark_surface">#1A1D27</color>
+    <color name="white">#FFFFFF</color>
+</resources>
