@@ -1,0 +1,17 @@
+# Built-in Gradle files
+.gradle/
+build/
+app/build/
+
+# Local configuration files
+local.properties
+
+# Android Studio / IntelliJ files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# System & OS temporary files
+.DS_Store
+Thumbs.db
